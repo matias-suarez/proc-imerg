@@ -1,0 +1,44 @@
+1. Registrarse en Earthdata (https://disc.gsfc.nasa.gov/)
+
+Ahora se debe linkear GES DISC con la cuenta (https://disc.gsfc.nasa.gov/earthdata-login):
+
+    -Login to https://urs.earthdata.nasa.gov/.  If you do not have account then you need to register first.
+
+    -Click on the 'Applications' tab and in the pop up menu Select the 'Authorized Apps' tab
+
+    -This will take you to the applications page which lists all the applications you have authorized to date.
+
+    -Clicking on that will take you to the application search page.
+
+    -Enter the application name NASA GESDISC DATA ARCHIVE or a keyword for the application, and click on the 'SEARCH'' button. 
+     You will be presented with a list of applications matching your search (Figure 4). Note that applications you have already approved will not show up.
+
+    -Locate NASA GESDISC DATA ARCHIVE application and click on the 'APPROVE' button next to it. 
+     You will be presented with the End User License Agreement (Figure 5) which you will need to acknowledge selecting the box next 
+     to 'I agree to the terms of End User License Agreement' checkbox.
+
+    -Clicking on the green 'AGREE' button will authorize the application and you will be presented with Authorized 
+     Applications page that lists NASA GESDISC DATA ARCHIVE application 
+
+
+2. Create .netrc file
+    a. cd ~ or cd $HOME
+    b. touch .netrc
+    c. echo "machine urs.earthdata.nasa.gov login < uid > password < password >" >> .netrc
+       (where < uid > is your username and < password > is your Earthdata Login password without the brackets.)
+    d. chmod 0600 .netrc, so only you can access it.
+3. Create .urs_cookies file
+    a. cd ~ or cd $HOME
+    b. touch .urs_cookies
+4. Create .dodsrc file
+    a. cd ~ or cd $HOME
+    b. touch .dodsrc
+    c. Open the .dodsrc file in a text editor and add the following lines, with the paths to your .netrc and .urs_cookies files:
+        
+            HTTP.NETRC=< YourHomeDirectory >/.netrc
+            HTTP.COOKIEJAR=< YourHomeDirectory >/.urs_cookies
+
+            Replace < YourHomeDirectory > with the ABSOLUTE path of your home directory and remove the bracket.
+5. Copy the .dodsrc file to your working project directory.
+
+Mas Info de este procedimiento en https://disc.gsfc.nasa.gov/information/howto?title=How%20to%20Generate%20Earthdata%20Prerequisite%20Files
